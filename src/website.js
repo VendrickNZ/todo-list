@@ -11,7 +11,7 @@ function createHeader() {
     hamburgerButton.classList.add("hamburgerButton");
     hamburgerButton.innerHTML = '<img src=./static/images/hamburgerButton.png />';
     
-    header.appendChild(hamburgerButton)
+    header.appendChild(hamburgerButton);
     header.appendChild(todoListHeader);
     return header;
 }
@@ -57,10 +57,15 @@ function createNavBar() {
         setActiveBtn(thisWeekBtn);
         // loadThisWeek();
     });
+
+    const projectsHeader = document.createElement("h1");
+    projectsHeader.classList.add("projectsHeader");
+    projectsHeader.textContent = "Projects";
     
     nav.appendChild(homeBtn);
     nav.appendChild(todayBtn);
     nav.appendChild(thisWeekBtn);
+    nav.appendChild(projectsHeader);
     
     return nav;
 }

@@ -17,8 +17,16 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     border: solid red;
     box-sizing: border-box;
+}
+
+.hamburgerButton {
+    position: absolute;
+    top: 25px;
+    left: 40px;
+
 }
 
 .footer {
