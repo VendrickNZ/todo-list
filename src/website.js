@@ -6,9 +6,26 @@ function createHeader() {
     const todoListHeader = document.createElement("h1");
     todoListHeader.textContent = "Todo List";
     todoListHeader.classList.add("todoListHeader");
+
+    const hamburgerButton = document.createElement("button");
+    hamburgerButton.classList.add("hamburgerButton");
+    hamburgerButton.innerHTML = '<img src=./static/images/hamburgerButton.png />';
     
+    header.appendChild(hamburgerButton)
     header.appendChild(todoListHeader);
     return header;
+}
+
+
+function setActiveBtn(button) {
+    const buttons = document.querySelectorAll('.navBtn');
+    buttons.forEach((button) => {
+        if (button !== this) {
+            button.classList.remove("active");
+        }
+    });
+
+    button.classList.add("active");
 }
 
 function createNavBar() {
@@ -22,7 +39,7 @@ function createNavBar() {
 
     const homeBtn = document.createElement("button");
     homeBtn.classList.add("navBtn");
-    homeBtn.textContent = "Home";
+    homeBtn.innerHTML = "<img src=./static/images/homeButton.png /> Home";
     homeBtn.addEventListener("click", (e) => {
         if (e.target.classList.contains("active")) return;
         setActiveBtn(homeBtn);
@@ -53,18 +70,6 @@ function createNavBar() {
     
     return nav;
 }
-
-function setActiveBtn(button) {
-    const buttons = document.querySelectorAll('.navBtn');
-    buttons.forEach((button) => {
-        if (button !== this) {
-            button.classList.remove("active");
-        }
-    });
-
-    button.classList.add("active");
-}
-
 
 function createMain() {    
     const main = document.createElement("main");
@@ -105,3 +110,5 @@ function initializeWebsite() {
 }
 
 export default initializeWebsite;
+
+
