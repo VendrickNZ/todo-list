@@ -4,32 +4,38 @@ html {
     min-height: 100%;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+}
+#content {
+    height: 100vh;
+}
+
 .header {
+    height: 8vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     border: solid red;
-    height: 100px;
+    box-sizing: border-box;
 }
 
 .footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    height: 4vh;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: var(--spacing-sm);
-    height: 50px;
     gap: 10px;
     border: solid 2px red;
+    box-sizing: border-box;
 }
 .main {
     display: flex;
-    min-height: calc(100vh - 100px - 50px);
     border: solid blue;
+    height: 88vh;
+    box-sizing: border-box;
 }
 
 .main nav {

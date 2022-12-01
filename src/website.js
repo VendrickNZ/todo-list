@@ -30,16 +30,10 @@ function setActiveBtn(button) {
 
 function createNavBar() {
     const nav = document.createElement("nav");
-    
-    const homeBtnIcon = document.createElement("img");
-    const todayBtnIcon = document.createElement("img");
-    const thisWeekBtnIcon = document.createElement("img");
-
-    homeBtnIcon.src = "./static/images/homeButton.png"
 
     const homeBtn = document.createElement("button");
     homeBtn.classList.add("navBtn");
-    homeBtn.innerHTML = "<img src=./static/images/homeButton.png /> Home";
+    homeBtn.innerHTML = "<img src=./static/images/homeButton.svg /> Home";
     homeBtn.addEventListener("click", (e) => {
         if (e.target.classList.contains("active")) return;
         setActiveBtn(homeBtn);
@@ -48,7 +42,7 @@ function createNavBar() {
     
     const todayBtn = document.createElement("button");
     todayBtn.classList.add("navBtn");
-    todayBtn.textContent = "Today";
+    todayBtn.innerHTML = "<img src=./static/images/todayButton.svg /> Today";
     todayBtn.addEventListener("click", (e) => {
         if (e.target.classList.contains("active")) return;
         setActiveBtn(todayBtn);
@@ -57,7 +51,7 @@ function createNavBar() {
     
     const thisWeekBtn = document.createElement("button");
     thisWeekBtn.classList.add("navBtn");
-    thisWeekBtn.textContent = "This week";
+    thisWeekBtn.innerHTML = "<img src=./static/images/thisWeekButton.svg /> This week";
     thisWeekBtn.addEventListener("click", (e) => {
         if (e.target.classList.contains("active")) return;
         setActiveBtn(thisWeekBtn);
