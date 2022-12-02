@@ -71,18 +71,21 @@ function createNavBar() {
     addProjectsBtn.innerHTML = "<img src=./static/images/addButton.svg /> Add Project";
     addProjectsBtn.addEventListener("click", () => {
         const newProjectBtn = document.createElement("button");
-        newProjectBtn.addEventListener("dblclick", () => {
-            const textBox = document.createElement("input");
-            newProjectBtn.textContent = `<img src=./static/images/newProjectButton.svg /> ${textBox.value}`;
-        });
         newProjectBtn.classList.add("navBtn");
         newProjectBtn.classList.add("newProjectBtn");
         newProjectBtn.innerHTML = "<img src=./static/images/newProjectButton.svg /> New Project";
-
         newProjectBtn.addEventListener("click", (e) => {
             if (e.target.classList.contains("active")) return;
             setActiveBtn(newProjectBtn);
             // load the project
+        })
+
+        const editBtn = document.createElement("button");
+        editBtn.classList.add("navBtn");
+        editBtn.classList.add("editBtn");
+        editBtn.innerHTML = "img src=./static/images/editButton.svg />";
+        editBtn.addEventListener("click", () => {
+            // attempt to make modal component without hurting myself irl
         })
         nav.appendChild(newProjectBtn)
     })
