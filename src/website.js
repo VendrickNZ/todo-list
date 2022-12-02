@@ -70,6 +70,8 @@ function createNavBar() {
     addProjectsBtn.classList.add("navBtn");
     addProjectsBtn.innerHTML = "<img src=./static/images/addButton.svg /> Add Project";
     addProjectsBtn.addEventListener("click", () => {
+        const newProjectDiv = document.createElement("div");
+        newProjectDiv.classList.add("newProjectDiv");
         const newProjectBtn = document.createElement("button");
         newProjectBtn.classList.add("navBtn");
         newProjectBtn.classList.add("newProjectBtn");
@@ -79,17 +81,39 @@ function createNavBar() {
             setActiveBtn(newProjectBtn);
             // load the project
         })
-
+        let currentProjectName = "New Project";
         const editBtn = document.createElement("button");
+        editBtn.setAttribute("data-bs-toggle", "modal");
+        editBtn.setAttribute("data-bs-target", "")
         editBtn.classList.add("navBtn");
         editBtn.classList.add("editBtn");
-        editBtn.innerHTML = "img src=./static/images/editButton.svg />";
+        editBtn.innerHTML = "<img src=./static/images/editButton.svg />";
         editBtn.addEventListener("click", () => {
             // attempt to make modal component without hurting myself irl
+            newProjectBtn.innerHTML = `<div class="projectNameTextBox">
+                <input type="text" id="projectName"
+            </div>
+            <div class="confirmProjectNameBtn">
+                <button id="submitButton">Submit</button>
+                <button id="cancelButton">Cancel</button>
+            </div>
+            `
+            const submitButton = document.getElementById("submitButton");
+            submitButton.addEventListener("click", () => {
+                let newProjectName = document.getElementById('projectName').value;
+                newProjectBtn.innerHTML = `<img src=./static/images/newProjectButton.svg /> ${newProjectName}`;
+                currentProjectName = newProjectName;
+            })
+
+            const cancelButton = document.getElementById("cancelButton");
+            cancelButton.addEventListener("click", () => {
+                newProjectBtn.innerHTML = `<img src=./static/images/newProjectButton.svg /> ${currentProjectName}`;
+            })
         })
-        nav.appendChild(newProjectBtn)
+        newProjectDiv.append(newProjectBtn);
+        newProjectDiv.append(editBtn);
+        nav.appendChild(newProjectDiv);
     })
-    
     nav.appendChild(homeBtn);
     nav.appendChild(todayBtn);
     nav.appendChild(thisWeekBtn);
@@ -98,7 +122,6 @@ function createNavBar() {
 
     return nav;
 }
-
 function changeProjectName(newProjectBtn) {
     console.log("curious");
     const textBox = document.createElement("input");
@@ -149,7 +172,4 @@ function initializeWebsite() {
     setActiveBtn(document.querySelector(".navBtn"));
     loadHome();
 }
-
 export default initializeWebsite;
-
-

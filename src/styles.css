@@ -95,3 +95,21 @@ html, body {
 a {
     text-decoration: none;
 }
+
+.newProjectDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.newProjectBtn {
+    width: 225px;
+}
+
+.editBtn {
+    width: 50px;
+}
+
+.projectNameTextBox {
+    display: flex;
+    justify-content: center;
+}
