@@ -44,6 +44,7 @@ html, body {
     border: solid blue;
     height: 88vh;
     box-sizing: border-box;
+    width: 100vw;
 }
 
 .main nav {
@@ -60,6 +61,16 @@ html, body {
 
 .main nav.active {
     display: block;
+}
+
+.home {
+
+}
+
+#mainContainer {
+    width: calc(100vw - 300px);
+    display: flex;
+    justify-content: center;
 }
 
 .navBtn {

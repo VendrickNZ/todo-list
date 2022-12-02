@@ -1,3 +1,6 @@
+import loadHome from "./home";
+import loadToday from "./today";
+import loadThisWeek from "./thisweek";
 
 function createHeader() {
     const header = document.createElement("header");
@@ -37,7 +40,7 @@ function createNavBar() {
     homeBtn.addEventListener("click", (e) => {
         if (e.target.classList.contains("active")) return;
         setActiveBtn(homeBtn);
-        // loadHome();
+        loadHome();
     });
     
     const todayBtn = document.createElement("button");
@@ -46,7 +49,7 @@ function createNavBar() {
     todayBtn.addEventListener("click", (e) => {
         if (e.target.classList.contains("active")) return;
         setActiveBtn(todayBtn);
-        // loadToday();
+        loadToday();
     });
     
     const thisWeekBtn = document.createElement("button");
@@ -55,19 +58,49 @@ function createNavBar() {
     thisWeekBtn.addEventListener("click", (e) => {
         if (e.target.classList.contains("active")) return;
         setActiveBtn(thisWeekBtn);
-        // loadThisWeek();
+        loadThisWeek();
     });
 
     const projectsHeader = document.createElement("h1");
     projectsHeader.classList.add("projectsHeader");
     projectsHeader.textContent = "Projects";
+
+    const addProjectsBtn = document.createElement("button");
+    addProjectsBtn.classList.add("addProjectsBtn");
+    addProjectsBtn.classList.add("navBtn");
+    addProjectsBtn.innerHTML = "<img src=./static/images/addButton.svg /> Add Project";
+    addProjectsBtn.addEventListener("click", () => {
+        const newProjectBtn = document.createElement("button");
+        newProjectBtn.addEventListener("dblclick", () => {
+            const textBox = document.createElement("input");
+            newProjectBtn.textContent = `<img src=./static/images/newProjectButton.svg /> ${textBox.value}`;
+        });
+        newProjectBtn.classList.add("navBtn");
+        newProjectBtn.classList.add("newProjectBtn");
+        newProjectBtn.innerHTML = "<img src=./static/images/newProjectButton.svg /> New Project";
+
+        newProjectBtn.addEventListener("click", (e) => {
+            if (e.target.classList.contains("active")) return;
+            setActiveBtn(newProjectBtn);
+            // load the project
+        })
+        nav.appendChild(newProjectBtn)
+    })
     
     nav.appendChild(homeBtn);
     nav.appendChild(todayBtn);
     nav.appendChild(thisWeekBtn);
     nav.appendChild(projectsHeader);
-    
+    nav.appendChild(addProjectsBtn);
+
     return nav;
+}
+
+function changeProjectName(newProjectBtn) {
+    console.log("curious");
+    const textBox = document.createElement("input");
+    newProjectBtn = textBox.value;
+    return newProjectBtn;
 }
 
 function createMain() {    
@@ -75,6 +108,12 @@ function createMain() {
     main.classList.add("main");
     main.setAttribute("id", "main");
     main.appendChild(createNavBar());
+
+    const mainContainer = document.createElement("div");
+    mainContainer.classList.add("mainContainer");
+    mainContainer.setAttribute("id", "mainContainer");
+    main.appendChild(mainContainer);
+    
     return main;
 }
 
@@ -105,7 +144,7 @@ function initializeWebsite() {
     container.appendChild(createFooter());
 
     setActiveBtn(document.querySelector(".navBtn"));
-    // loadHome();
+    loadHome();
 }
 
 export default initializeWebsite;
