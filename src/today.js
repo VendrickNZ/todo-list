@@ -3,7 +3,7 @@ function createToday() {
     today.classList.add("today");
 
     const a = document.createElement("h1");
-    a.textContent = "test";
+    a.textContent = "Today";
 
     today.appendChild(a);
     return today;

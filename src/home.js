@@ -3,7 +3,7 @@ function createHome() {
     home.classList.add("home");
 
     const a = document.createElement("h1");
-    a.textContent = "test";
+    a.textContent = "Home";
 
     home.appendChild(a)
     return home;

@@ -3,7 +3,7 @@ function createThisWeek() {
     thisWeek.classList.add("thisWeek");
 
     const a = document.createElement("h1");
-    a.textContent = "test";
+    a.textContent = "This Week";
 
     thisWeek.appendChild(a);
     return thisWeek;

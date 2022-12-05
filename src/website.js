@@ -83,8 +83,6 @@ function createNavBar() {
         })
         let currentProjectName = "New Project";
         const editBtn = document.createElement("button");
-        editBtn.setAttribute("data-bs-toggle", "modal");
-        editBtn.setAttribute("data-bs-target", "")
         editBtn.classList.add("navBtn");
         editBtn.classList.add("editBtn");
         editBtn.innerHTML = "<img src=./static/images/editButton.svg />";
@@ -121,12 +119,6 @@ function createNavBar() {
     nav.appendChild(addProjectsBtn);
 
     return nav;
-}
-function changeProjectName(newProjectBtn) {
-    console.log("curious");
-    const textBox = document.createElement("input");
-    newProjectBtn = textBox.value;
-    return newProjectBtn;
 }
 
 function createMain() {    
