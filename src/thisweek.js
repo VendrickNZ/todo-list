@@ -2,10 +2,10 @@ function createThisWeek() {
     const thisWeek = document.createElement("div");
     thisWeek.classList.add("thisWeek");
 
-    const a = document.createElement("h1");
-    a.textContent = "This Week";
+    const title = document.createElement("h1");
+    title.textContent = "This Week";
 
-    thisWeek.appendChild(a);
+    thisWeek.appendChild(title);
     return thisWeek;
 }
 

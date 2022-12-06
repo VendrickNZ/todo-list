@@ -1,6 +1,7 @@
 import loadHome from "./home";
 import loadToday from "./today";
 import loadThisWeek from "./thisweek";
+import loadCards from "./cards";
 
 function createHeader() {
     const header = document.createElement("header");
@@ -33,6 +34,7 @@ function setActiveBtn(button) {
 
 function createNavBar() {
     const nav = document.createElement("nav");
+    nav.classList.add("navbar");
 
     const homeBtn = document.createElement("button");
     homeBtn.classList.add("navBtn");
@@ -41,6 +43,8 @@ function createNavBar() {
         if (e.target.classList.contains("active")) return;
         setActiveBtn(homeBtn);
         loadHome();
+        loadCards();
+
     });
     
     const todayBtn = document.createElement("button");
@@ -50,6 +54,8 @@ function createNavBar() {
         if (e.target.classList.contains("active")) return;
         setActiveBtn(todayBtn);
         loadToday();
+        loadCards();
+
     });
     
     const thisWeekBtn = document.createElement("button");
@@ -59,6 +65,8 @@ function createNavBar() {
         if (e.target.classList.contains("active")) return;
         setActiveBtn(thisWeekBtn);
         loadThisWeek();
+        loadCards();
+
     });
 
     const projectsHeader = document.createElement("h1");
@@ -130,7 +138,7 @@ function createMain() {
     const mainContainer = document.createElement("div");
     mainContainer.classList.add("mainContainer");
     mainContainer.setAttribute("id", "mainContainer");
-    main.appendChild(mainContainer);
+    main.appendChild(mainContainer);    
     
     return main;
 }
@@ -163,5 +171,7 @@ function initializeWebsite() {
 
     setActiveBtn(document.querySelector(".navBtn"));
     loadHome();
+    loadCards();
+    
 }
 export default initializeWebsite;

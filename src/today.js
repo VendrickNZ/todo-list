@@ -2,10 +2,10 @@ function createToday() {
     const today = document.createElement("div");
     today.classList.add("today");
 
-    const a = document.createElement("h1");
-    a.textContent = "Today";
+    const title = document.createElement("h1");
+    title.textContent = "Today";
 
-    today.appendChild(a);
+    today.appendChild(title);
     return today;
 }
 
